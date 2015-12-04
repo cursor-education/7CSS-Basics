@@ -1,8 +1,292 @@
 <html>
 <head>
     <title>CSS | Basics</title>
+
+    <link rel="stylesheet" href="http://cursor-education.github.io/style/reveal/css/reveal.css">
+    <link rel="stylesheet" href="http://cursor-education.github.io/style/reveal/css/theme/cursor-education.css" id="theme">
+    <link rel="stylesheet" href="http://cursor-education.github.io/style/reveal/css/theme/cursor-education-more.css" id="theme">
+    <link rel="stylesheet" href="http://cursor-education.github.io/style/reveal/lib/css/zenburn.css">
+
+    <style>
+        .reveal pre.example {
+            border: none;
+            box-shadow: none;
+            font-size: 30px;
+        }
+
+        .reveal .slides .result {
+            border: 1px solid #888;
+            font-size: initial;
+            padding: 20px;
+        }
+
+        .half {
+            width: 45% !important;
+            float: left;
+        }
+        .third {
+            width: 30%;
+            float: left;
+        }
+
+        .inner {
+            width: 40px;
+            height: 40px;
+            background-color: red;
+            border: 3px solid black !important;
+        }
+    </style>
 </head>
 <body>
+    <div class="reveal">
+        <div class="slides">
+            <section>
+                <h1>CSS Basics</h1>
+            </section>
 
+            <section>
+                <h2>CSS Selectors</h2>
+                <pre class="prettyprint example">
+                    selector {
+                        rule: value;
+                        rule: value;
+                        rule: value;
+                    }
+                </pre>
+            </section>
+
+            <section>
+                <h2>Structure</h2>
+<pre class="prettyprint example lang-html">&lt;p id="main" class="text paragraph" 
+    data-color="green"&gt;Dummy text&lt;/p&gt;
+</pre>
+<pre class="prettyprint example">
+#main {...}
+.text {...}
+p {...}
+
+p.text {...}
+.text.paragraph {...}
+
+p[data-color="green"] { 
+    color: green; 
+}
+</pre>
+            </section>
+
+            <section>
+                <h2>Inline CSS</h2>
+                <pre class="prettyprint example">&lt;p style="color: #D00; font-size: 22px;"&gt;Dummy text&lt;/p&gt;</pre>
+                <div class="result">
+                    <p style="color: #D00; font-size: 22px;">Dummy text</p>
+                </div>
+            </section>
+
+            <section>
+                <h2>CSS in HEAD tag</h2>
+<pre class="prettyprint example">
+&lt;head&gt;
+    ...
+    &lt;style&gt;
+        .text {
+            color: black;
+            font-size: 22px;
+            font-family: My awesome font, 
+                          Verdana, Arial, 
+                          sans-serif;
+        }
+    &lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;span class="text"&gt;Dummy text&lt;/span&gt; Anyway
+</pre>
+                <div class="result">
+                    <span style="color: black; font-size: 22px; font-family: Comic Sans, Arial, sans-serif;">Dummy text</span> Anyway
+                </div>
+            </section>
+
+            <section>
+                <h2>CSS in external file</h2>
+<pre class="prettyprint example">
+&lt;link rel="stylesheet" 
+    href="http://cursor-education.github.io/.../css/style.css"&gt;
+
+
+&lt;link rel="stylesheet" href="css/style.css"&gt;
+</pre>
+            </section>
+
+            <section>
+                <h4>lets create 10 divs with class inner inside div with class outer,
+                    for first inner div add class first, for fifth add class fifth, attach file style.css</h4>
+<div class="">                    
+<pre class="prettyprint example">
+    &lt;div class="outer"&gt;
+        &lt;div class="inner first"&gt;&lt;/div&gt;
+        ...
+        &lt;div class="inner fifth"&gt;&lt;/div&gt;
+        ...
+        &lt;div class="inner">&lt;/div&gt;
+    &lt;/div&gt;
+</pre>
+</div>
+                
+                    <div class="result">
+                        <div class="outer">
+                            <div class="inner first"></div>
+                            <div class="inner"></div>
+                            <div class="inner"></div>
+                            <div class="inner"></div>
+                            <div class="inner fifth"></div>
+                            <div class="inner"></div>
+                            <div class="inner"></div>
+                            <div class="inner"></div>
+                            <div class="inner"></div>
+                            <div class="inner"></div>
+                        </div>
+                    </div>
+                </h4>
+            </section>
+
+            <section>
+                <div class="half">
+<pre class="prettyprint example">
+.inner {
+    width: 40px;
+    height: 40px;
+    background: red;
+    border: 3px solid black;
+}
+</pre>
+                </div>
+                <div class="result half">
+                        <div class="outer">
+                            <div class="inner first"></div>
+                            <div class="inner"></div>
+                            <div class="inner"></div>
+                            <div class="inner"></div>
+                            <div class="inner fifth"></div>
+                            <div class="inner"></div>
+                            <div class="inner"></div>
+                            <div class="inner"></div>
+                            <div class="inner"></div>
+                            <div class="inner"></div>
+                        </div>
+                    </div>
+            </section>
+              <section>
+                background-image: <br />
+                background-position: <br /> 
+                background-size: <br /> 
+                background-repeat: <br /> 
+                background-color: <br /> 
+                <br />
+                border-width: <br />
+                border-style: <br />
+                border-color: <br />
+            </section>
+<section>
+    <div class="half">
+<pre class="prettyprint example">
+.outer {
+    background: url('http://lorempixel.com/100/100/') no-repeat 0 0 grey;
+}
+</pre>
+                </div>
+                <div class="result half" style="background: url('http://lorempixel.com/100/100/') no-repeat 0 0 grey;">
+                        <div class="outer">
+                            <div class="inner first"></div>
+                            <div class="inner"></div>
+                            <div class="inner"></div>
+                            <div class="inner"></div>
+                            <div class="inner fifth"></div>
+                            <div class="inner"></div>
+                            <div class="inner"></div>
+                            <div class="inner"></div>
+                            <div class="inner"></div>
+                            <div class="inner"></div>
+                        </div>
+                    </div>
+            </section>
+<section>
+    <div class="half">
+<pre class="prettyprint example">
+.outer {
+    background: url('http://lorempixel.com/100/100/') repeat-x 0 0 grey;
+}
+</pre>
+                </div>
+                <div class="result half" style="background: url('http://lorempixel.com/100/100/') repeat-x 0 0 grey;">
+                        <div class="outer">
+                            <div class="inner first"></div>
+                            <div class="inner"></div>
+                            <div class="inner"></div>
+                            <div class="inner"></div>
+                            <div class="inner fifth"></div>
+                            <div class="inner"></div>
+                            <div class="inner"></div>
+                            <div class="inner"></div>
+                            <div class="inner"></div>
+                            <div class="inner"></div>
+                        </div>
+                    </div>
+            </section>
+ <section>
+    <div class="half">
+<pre class="prettyprint example">
+.outer {
+    background: url('http://lorempixel.com/100/100/') repeat-x 100px 100px grey;
+}
+</pre>
+                </div>
+                <div class="result half" style="background: url('http://lorempixel.com/100/100/') repeat-x  100px 100px grey;">
+                        <div class="outer">
+                            <div class="inner first"></div>
+                            <div class="inner"></div>
+                            <div class="inner"></div>
+                            <div class="inner"></div>
+                            <div class="inner fifth"></div>
+                            <div class="inner"></div>
+                            <div class="inner"></div>
+                            <div class="inner"></div>
+                            <div class="inner"></div>
+                            <div class="inner"></div>
+                        </div>
+                    </div>
+            </section>
+            <section>
+    <div class="half">
+<pre class="prettyprint example">
+.outer {
+    background: url('http://lorempixel.com/100/100/') 100px 100px grey;
+}
+</pre>
+                </div>
+                <div class="result half" style="background: url('http://lorempixel.com/100/100/') 100px 100px grey;">
+                        <div class="outer">
+                            <div class="inner first"></div>
+                            <div class="inner"></div>
+                            <div class="inner"></div>
+                            <div class="inner"></div>
+                            <div class="inner fifth"></div>
+                            <div class="inner"></div>
+                            <div class="inner"></div>
+                            <div class="inner"></div>
+                            <div class="inner"></div>
+                            <div class="inner"></div>
+                        </div>
+                    </div>
+            </section>           
+            
+        </div>
+    </div>
+
+
+
+    <script src="http://cursor-education.github.io/style/reveal/lib/js/head.min.js"></script>
+    <script src="http://cursor-education.github.io/style/reveal/js/reveal.js"></script>
+    <script src="http://cursor-education.github.io/style/reveal/main.js"></script>
+    <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+    <script src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js"></script>
 </body>
 </html>
